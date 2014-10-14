@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sign up</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <h1>Create account</h1>
+        <form action="CenterServlet" method="POST">
+            Username* <input type="text" name="txtUsername" value="" /> 6-20 characters<br/>
+            Password*   <input type="password" name="txtPassword" value="" /> 5-20 characters<br/>
+            Confirm* <input type="password" name="txtConfirm" value="" /> 5-20 characters<br/>
+            Last name* <input type="text" name="txtLastname" value="" /> 5-20 characters<br/>
+            <input type="submit" value="Sign up" name="btAction"/>    
+            <input type="reset" value="Reset" name="btAction"/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/Database_demo_home">
+    <Resource name="ThienDS" auth="Container" type="javax.sql.DataSource"
+              driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
+              url="jdbc:sqlserver://localhost:1433;databaseName=ACCOUNT"
+              username="sa" password="*9394lht#"
+    />
+</Context>

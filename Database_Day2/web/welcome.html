@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Welcome</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>    
+        <h1>Welcome to this page!!</h1>
+        <form action="CenterServlet">
+            Name <input type="text" name="txtName" value="" />
+            <input type="submit" value="Search" name="btAction"/>
+        </form><br/>
+        <form action="CenterServlet" method="POST">
+            Product: <select name="ddlProduct">
+                <option>Macbook</option>
+                <option>iPhone</option>
+                <option>Samsung Galaxy</option>
+                <option>HTC One</option>
+                <option>LG G</option>
+                <option>iPad</option>
+                <option>Nexus</option>
+                <option>One plus</option>
+            </select><br/><br/>
+            <input type="submit" value="Add this item to cart" name="btAction" />   
+            <input type="submit" value="View your cart" name="btAction" /><br/>
+        </form>
+    </body>
+</html>
