@@ -21,7 +21,8 @@ import sample.account.AccountError;
  */
 public class SignupServlet extends HttpServlet {
 
-    private final String errorDisplayServlet = "ErrorDisplayServlet";
+//    private final String errorDisplayServlet = "ErrorDisplayServlet";
+    private final String errorDisplayServlet = "CreateAccount.jsp";
     private final String loginPage = "login.html";    
 
     /**
