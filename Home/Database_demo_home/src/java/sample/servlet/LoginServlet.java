@@ -7,6 +7,7 @@ package sample.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -68,7 +69,9 @@ public class LoginServlet extends HttpServlet {
             }
 
             //  Redirect
-            response.sendRedirect(url);
+            //  response.sendRedirect(url);
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
             
             out.println("</body>");
             out.println("</html>");

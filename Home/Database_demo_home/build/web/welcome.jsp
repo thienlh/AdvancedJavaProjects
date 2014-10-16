@@ -13,7 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <c:set var="name" value="${param.txtName}"></c:set>
+        <c:set var="name" value="${param.txtUsername}"></c:set>
+        
         <c:if test="${not empty name}">
             <c:set var="list" value="${requestScope.INFO}"></c:set>
             <c:if test="${not empty INFO}">  

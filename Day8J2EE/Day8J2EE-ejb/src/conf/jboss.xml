@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+    <enterprise>
+        <session>
+            <ejb-name>CalculatorSessionBean</ejb-name>
+            <jndi-name>CalJNDI</jndi-name>
+            <local-jndi-name>CalLocalJNDI</local-jndi-name>
+        </session>
+    </enterprise>
+</jboss>

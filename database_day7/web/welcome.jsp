@@ -7,7 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/WEB-INF/tlds/newtag_library.tld" prefix="abc"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jstl/sql" prefix="sql"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,10 +48,11 @@
         <c:if test="${not empty name}">
             <c:catch var="ex">
                 <sql:setDataSource var="cn" dataSource="ThienDS"/>
+
                 <c:if test="${not empty cn}">
                     <sql:query var="rs" dataSource="${cn}">
-                        Select * from ACCOUNT where username like ?
-                        <sql:param value="${name}"/>
+                        select * from CEO where lastname like ?
+                        <sql:param value="%${name}%"/>
                     </sql:query>
                 </c:if>
             </c:catch>
@@ -58,6 +60,7 @@
 
             </c:if>
         </c:if>
+
         <c:if test="${not empty rs}">
             <table border="1">
                 <thead>
@@ -71,15 +74,14 @@
                 </thead>
                 <tbody>
                     <c:forEach var="record" items="${rs.rows}" varStatus="counter">
-
+                        <tr>
+                            <td>${counter.count}</td>
+                            <td>${record.username}</td>
+                            <td>${record.password}</td>
+                            <td>${record.lastname}</td>
+                            <td>${record.isAdmin}</td>
+                        </tr>
                     </c:forEach>
-                    <tr>
-                        <td>${counter.count}</td>
-                        <td>${record.username}</td>
-                        <td>${record.password}</td>
-                        <td>${record.lastname}</td>
-                        <td>${record.isAdmin}</td>
-                    </tr>
                 </tbody>
             </table>
         </c:if>
