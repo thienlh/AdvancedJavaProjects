@@ -5,8 +5,8 @@
         <session>
             <display-name>CalculatorSessionBeanSB</display-name>
             <ejb-name>CalculatorSessionBean</ejb-name>
-            <home>sample.session.CalculatorSessionBeanLocal</home>
-            <remote>sample.session.CalculatorSessionBeanLocalRemote</remote>
+            <home>sample.session.CalculatorSessionBeanRemoteHome</home>
+            <remote>sample.session.CalculatorSessionBeanRemote</remote>
             <local-home>sample.session.CalculatorSessionBeanLocalHome</local-home>
             <local>sample.session.CalculatorSessionBeanLocal</local>
             <ejb-class>sample.session.CalculatorSessionBean</ejb-class>

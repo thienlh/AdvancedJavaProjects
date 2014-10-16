@@ -12,7 +12,7 @@ import javax.ejb.SessionContext;
  * @author thienlh
  */
 public class CalculatorSessionBean implements SessionBean {
-    
+
     private SessionContext context;
 
     // <editor-fold defaultstate="collapsed" desc="EJB infrastructure methods. Click the + sign on the left to edit the code.">;
@@ -29,21 +29,18 @@ public class CalculatorSessionBean implements SessionBean {
      * @see javax.ejb.SessionBean#ejbActivate()
      */
     public void ejbActivate() {
-        
     }
 
     /**
      * @see javax.ejb.SessionBean#ejbPassivate()
      */
     public void ejbPassivate() {
-        
     }
 
     /**
      * @see javax.ejb.SessionBean#ejbRemove()
      */
     public void ejbRemove() {
-        
     }
 
     // </editor-fold>;
@@ -63,8 +60,8 @@ public class CalculatorSessionBean implements SessionBean {
     public double add(double num1, double num2) {
         return num1 + num2;
     }
-    public double substract(double num1, double num2) {
+    
+    public double substract(double num1, double num2)  {
         return num1 - num2;
     }
-    
 }

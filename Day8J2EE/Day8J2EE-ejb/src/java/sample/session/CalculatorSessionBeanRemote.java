@@ -12,6 +12,6 @@ import javax.ejb.EJBObject;
  * @author thienlh
  */
 public interface CalculatorSessionBeanRemote extends EJBObject {
-    double add(double num1, double num2);
-    public double substract(double num1, double num2) throws RemoteException;
+    double add(double num1, double num2) throws RemoteException;
+    double substract(double num1, double num2) throws RemoteException;
 }

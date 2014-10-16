@@ -9,8 +9,8 @@
         <servlet-class>sample.servlet.AddServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SubServlet</servlet-name>
-        <servlet-class>sample.servlet.SubServlet</servlet-class>
+        <servlet-name>SubstractServlet</servlet-name>
+        <servlet-class>sample.servlet.SubstractServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CenterServlet</servlet-name>
@@ -21,8 +21,8 @@
         <url-pattern>/AddServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SubServlet</servlet-name>
-        <url-pattern>/SubServlet</url-pattern>
+        <servlet-name>SubstractServlet</servlet-name>
+        <url-pattern>/SubstractServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

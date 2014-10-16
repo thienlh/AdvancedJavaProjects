@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author thienlh
  */
 public class CenterServlet extends HttpServlet {
-    private final String subServlet = "SubServlet";
+    private final String subServlet = "SubstractServlet";
     private final String addServlet = "AddServlet";
     /**
      * Processes requests for both HTTP

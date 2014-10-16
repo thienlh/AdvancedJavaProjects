@@ -11,7 +11,6 @@ import javax.ejb.EJBLocalObject;
  * @author thienlh
  */
 public interface CalculatorSessionBeanLocal extends EJBLocalObject {
-
     double add(double num1, double num2);
-    public double substract(double num1, double num2);
+    double substract(double num1, double num2);
 }

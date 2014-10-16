@@ -6,6 +6,7 @@ package sample.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.rmi.RemoteException;
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -22,7 +23,7 @@ import sample.session.CalculatorSessionBeanRemoteHome;
  *
  * @author thienlh
  */
-public class AddServlet extends HttpServlet {
+public class SubstractServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -41,46 +42,45 @@ public class AddServlet extends HttpServlet {
         try {
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddServlet</title>");
+            out.println("<title>Servlet SubstractServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddServlet at " + request.getContextPath() + "</h1>");
-
+            out.println("<h1>Servlet SubstractServlet at " + request.getContextPath() + "</h1>");
+            //  Get parameters
             String n1 = request.getParameter("txtNum1");
             String n2 = request.getParameter("txtNum2");
 
+            //  Parsing
             double num1 = Double.parseDouble(n1);
             double num2 = Double.parseDouble(n2);
 
+            //  Init
+            Context context = null;
+            Object obj = null;
             CalculatorSessionBeanRemoteHome homeObj = null;
             CalculatorSessionBeanRemote ejbObj = null;
             try {
-                //  Lay context hien hanh
-                Context context = new InitialContext();
-                if (context != null) {
-                    Object obj = context.lookup("CalJNDI");
-                    homeObj = (CalculatorSessionBeanRemoteHome) PortableRemoteObject.narrow(obj, CalculatorSessionBeanRemoteHome.class);
-
-                }
-                //  Lookup HomeObj
-                //  Create EjbObj dua tren HomeObj
-                if (homeObj != null) {
-                    try {
-                        ejbObj = homeObj.create();
-                    } catch (CreateException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-                //  Goi business method tren EJBObj
-                //  Xu li
+                //  1.  Get current context
+                context = new InitialContext();
+                //  2.  Lookup for Home object using middle object
+                obj = (CalculatorSessionBeanRemoteHome) context.lookup("CalJNDI");
+                homeObj = (CalculatorSessionBeanRemoteHome) PortableRemoteObject.narrow(obj, CalculatorSessionBeanRemoteHome.class);
             } catch (NamingException ex) {
-                ex.printStackTrace();
+                log("Naming error!", ex.getCause());
             }
-
-            double result = ejbObj.add(num1, num2);
-
-            out.println("result=" + result);
-
+            //  3.  Create EJBObject base on Home Object
+            if (homeObj != null) {
+                try {
+                    ejbObj = homeObj.create();
+                } catch (CreateException ex) {
+                    log("Error while creating ejbObject", ex.getCause());
+                } catch (RemoteException ex) {
+                    log("Error while creating remote Object", ex.getCause());
+                }
+                //  Invoke business method
+                double result = ejbObj.substract(num1, num2);
+                out.println("result=" + result);
+            }
             out.println("</body>");
             out.println("</html>");
         } finally {
