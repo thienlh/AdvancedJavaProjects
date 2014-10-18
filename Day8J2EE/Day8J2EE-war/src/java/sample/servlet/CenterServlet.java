@@ -17,8 +17,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author thienlh
  */
 public class CenterServlet extends HttpServlet {
+
     private final String subServlet = "SubstractServlet";
     private final String addServlet = "AddServlet";
+    private final String loginServlet = "LoginServlet";
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -38,11 +41,14 @@ public class CenterServlet extends HttpServlet {
             if (button.equals("Add")) {
                 RequestDispatcher rd = request.getRequestDispatcher(addServlet);
                 rd.forward(request, response);
-            } else if (button.equals("Substract"))    {
+            } else if (button.equals("Substract")) {
                 RequestDispatcher rd = request.getRequestDispatcher(subServlet);
                 rd.forward(request, response);
+            } else if (button.equals("Login")) {
+                RequestDispatcher rd = request.getRequestDispatcher(loginServlet);
+                rd.forward(request, response);
             }
-        } finally {            
+        } finally {
             out.close();
         }
     }

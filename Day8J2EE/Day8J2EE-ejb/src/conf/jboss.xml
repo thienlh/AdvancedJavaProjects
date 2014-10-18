@@ -9,5 +9,11 @@
             <jndi-name>CalJNDI</jndi-name>
             <local-jndi-name>CalLocalJNDI</local-jndi-name>
         </session>
+        
+        <session>
+            <ejb-name>AccountSessionBean</ejb-name>
+            <jndi-name>AccJNDI</jndi-name>
+            <local-jndi-name>AccLocalJNDI</local-jndi-name>
+        </session>
     </enterprise-beans>
 </jboss>

@@ -13,7 +13,18 @@
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
         </session>
-    </enterprise-beans>
+        <session>
+            <display-name>AccountSessionBeanSB</display-name>
+            <ejb-name>AccountSessionBean</ejb-name>
+            <home>sample.session.AccountSessionBeanRemoteHome</home>
+            <remote>sample.session.AccountSessionBeanRemote</remote>
+            <local-home>sample.session.AccountSessionBeanLocalHome</local-home>
+            <local>sample.session.AccountSessionBeanLocal</local>
+            <ejb-class>sample.session.AccountSessionBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
@@ -22,5 +33,12 @@
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
-    </assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>AccountSessionBean</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        </assembly-descriptor>
 </ejb-jar>

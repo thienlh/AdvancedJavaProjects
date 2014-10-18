@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>AccountSessionBean</ejb-name>
+      <jndi-name>AccJNDI</jndi-name>
+      <local-jndi-name>AccLocalJNDI</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>ThienJNDI</res-ref-name>
+        <jndi-name>java:/JNDI</jndi-name>
+      </resource-ref>
+    </session>
+  </enterprise-beans>
+</jboss>
