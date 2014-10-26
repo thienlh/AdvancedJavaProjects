@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CenterServlet extends HttpServlet {
     private String loginServlet = "LoginServlet";
+    private String leaderDashboard = "LeaderDashboard.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,6 +41,9 @@ public class CenterServlet extends HttpServlet {
 
             if (button.equals("Login")) {
                 RequestDispatcher rd = request.getRequestDispatcher(loginServlet);
+                rd.forward(request, response);
+            } else if (button.equals("Search")) {
+                RequestDispatcher rd = request.getRequestDispatcher(leaderDashboard);
                 rd.forward(request, response);
             }
         } finally {

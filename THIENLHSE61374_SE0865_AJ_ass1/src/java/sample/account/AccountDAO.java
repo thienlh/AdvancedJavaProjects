@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import sample.utils.DBUtil;
 
 /**
@@ -62,8 +63,51 @@ public class AccountDAO implements Serializable {
         }
         return false;
     }
-    
-    public String getBlockSemester()    {
-        
+
+    public String getClassID(String username) {
+        Connection cn = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+
+            cn = DBUtil.makeConnection();
+            System.out.println("Connection=" + cn);
+            String sql = "select classID from account where username=?";
+            stm = cn.prepareStatement(sql);
+            stm.setString(1, username);
+
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                //  Class id 
+                String classId = rs.getString(1);
+                return classId;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (cn != null) {
+                try {
+                    cn.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return null;
     }
+    
 }
